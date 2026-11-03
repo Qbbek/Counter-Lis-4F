@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="counter.Views.CounterCreatorPage"
+             xmlns:models="clr-namespace:counter.Models"
+             x:DataType="models:CounterCreator"
+             Title="New Counter">
+    <ContentPage.BindingContext>
+        <models:CounterCreator/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout
+        Spacing="10"
+        Margin="5"
+        >
+
+        <Entry x:Name="CounterTitleEntry"
+               Text=""
+               Placeholder="{Binding titleEntryPlaceholder}" />
+
+        <Entry x:Name="BaseNumberEntry"
+               Text=""
+               Keyboard="Numeric"
+               Placeholder="{Binding baseNumberEntryPlaceholder}" />
+
+        <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="4" >
+
+            <Button Grid.Column="0"
+                    Text="{Binding saveButtonText}"
+                    Clicked="SaveButtonClicked"/>
+
+            <Button Grid.Column="1"
+                    Text="{Binding cancelButtonText}"
+                    Clicked="CancelButtonClicked"/>
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

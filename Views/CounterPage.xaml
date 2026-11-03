@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="counter.Views.CounterPage"
+             xmlns:models="clr-namespace:counter.Models"
+             x:DataType="models:Counter"
+             Title="Counter">
+    <VerticalStackLayout
+        Spacing="10"
+        Margin="5"
+        >
+
+        <Label Text="{Binding title}"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Label x:Name="CounterValueLabel"
+               Text="{Binding currentNumber}"
+               FontSize="64"
+               HorizontalOptions="Center" />
+
+        <Label Text="{Binding baseSetNumber, StringFormat='Starting number: {0}'}"
+               FontSize="14"
+               TextColor="Silver"
+               HorizontalOptions="Center" />
+
+        <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="4" >
+
+            <Button Grid.Column="0"
+                    Text="{Binding subtractButtonCharacter}"
+                    FontSize="28"
+                    Clicked="SubtractButtonClicked"/>
+
+            <Button Grid.Column="1"
+                    Text="{Binding addButtonCharacter}"
+                    FontSize="28"
+                    Clicked="AddButtonClicked"/>
+
+        </Grid>
+
+        <Button Text="{Binding resetButtonText}"
+                Clicked="ResetButtonClicked"/>
+
+        <Button Text="{Binding deleteButtonText}"
+                Clicked="DeleteButtonClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>
